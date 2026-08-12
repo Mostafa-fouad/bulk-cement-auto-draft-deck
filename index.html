@@ -463,7 +463,6 @@
         <div class="card lime reveal d5"><div class="ico"><svg class="ic"><use href="#ic-tag"/></svg></div><h3>"Auto-filled" badge</h3><p>Auto-sourced lines carry a badge so it's obvious which prices came from the system, not typed by hand.</p></div>
         <div class="card orange reveal d6"><div class="ico"><svg class="ic"><use href="#ic-cursor"/></svg></div><h3>Review &amp; override</h3><p>A pricing-insights tooltip explains the numbers; the manager tweaks any line before sending.</p></div>
       </div>
-      <p class="footer-note reveal d6">Built in the Next.js + React app, localized for English &amp; Arabic.</p>
     </section>
 
     <!-- 7. Before vs After -->
@@ -610,7 +609,11 @@
     if (e.key === 'ArrowLeft') go(i - 1);
     if (e.key === 'Home') go(0);
     if (e.key === 'End') go(slides.length - 1);
-    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
+    // Bare "f" only — let Cmd/Ctrl/Alt combos reach the browser's own full-screen shortcut.
+    if ((e.key === 'f' || e.key === 'F') && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      e.preventDefault();
+      toggleFullscreen();
+    }
   });
 
   go(0);

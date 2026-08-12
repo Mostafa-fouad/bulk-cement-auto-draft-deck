@@ -26,15 +26,18 @@
       var(--white);
   }
 
+  /* layout */
   .wrap { max-width:1180px; margin:0 auto; padding:48px 28px 90px; display:grid; grid-template-columns:230px 1fr; gap:40px; }
   @media (max-width:960px){ .wrap { grid-template-columns:1fr; gap:24px; } .toc { position:static !important; } }
 
+  /* sidebar */
   .toc { position:sticky; top:28px; align-self:start; background:var(--white); border:1px solid var(--line); box-shadow:var(--shadow); padding:20px 18px; }
   .toc h4 { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-deep); margin-bottom:12px; }
   .toc a { display:block; color:var(--ink-soft); text-decoration:none; font-size:.9rem; padding:5px 8px; border-left:3px solid transparent; transition:all .15s ease; }
   .toc a:hover { color:var(--ink); background:var(--teal-soft); border-left-color:var(--orange); }
   .toc .sep { height:1px; background:var(--line); margin:10px 0; }
 
+  /* header */
   header { margin-bottom:34px; }
   .kicker { display:inline-flex; align-items:center; gap:8px; font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-deep); background:var(--teal-soft); padding:8px 16px; margin-bottom:18px; }
   .kicker .dot { width:8px; height:8px; border-radius:50%; background:var(--orange); }
@@ -46,6 +49,7 @@
   .chip a { color:var(--teal-deep); text-decoration:none; font-weight:700; }
   .chip code { background:var(--lime-soft); color:var(--lime-deep); padding:1px 7px; font-weight:700; font-size:.85em; }
 
+  /* callouts */
   .callout { background:var(--white); border:1px solid var(--line); border-left:5px solid var(--teal); box-shadow:var(--shadow); padding:20px 22px; margin:20px 0; }
   .callout.remember { border-left-color:var(--orange); background:#fffaf5; }
   .callout .lbl { font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--teal-deep); margin-bottom:8px; }
@@ -56,6 +60,7 @@
   .howto li { padding-left:6px; }
   .howto b { color:var(--teal-deep); }
 
+  /* slide sections */
   .slide-note { background:var(--white); border:1px solid var(--line); box-shadow:var(--shadow); padding:26px 28px; margin:22px 0; scroll-margin-top:24px; }
   .slide-note > .head { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
   .slide-note .num { flex:none; width:40px; height:40px; display:grid; place-items:center; background:var(--teal); color:#fff; font-weight:800; font-size:1.05rem; }
@@ -71,8 +76,8 @@
   .tag.trans { background:#eef1f1; color:var(--ink-soft); }
 
   .say { border-left:4px solid var(--orange); background:#fffaf5; padding:14px 18px; font-size:1.05rem; }
-  .say::before { content:"“"; }
-  .say::after { content:"”"; }
+  .say::before { content:"\201C"; }
+  .say::after { content:"\201D"; }
   .screen-txt { color:var(--ink); }
   ul.key { list-style:none; display:grid; gap:8px; padding-left:2px; }
   ul.key li { position:relative; padding-left:22px; }
@@ -80,6 +85,7 @@
   .trans-txt { font-style:italic; color:var(--ink-soft); }
   code { background:var(--lime-soft); color:var(--lime-deep); padding:1px 7px; font-weight:700; font-size:.9em; }
 
+  /* Q&A */
   .qa { background:var(--white); border:1px solid var(--line); box-shadow:var(--shadow); padding:26px 28px; margin:22px 0; scroll-margin-top:24px; }
   .qa .item { padding:14px 0; border-bottom:1px dashed var(--line); }
   .qa .item:last-child { border-bottom:none; }
@@ -88,6 +94,7 @@
   .qa .a { color:var(--ink); border-left:4px solid var(--teal); background:#f4fbfc; padding:10px 16px; }
   .qa .a::before { content:"A "; color:var(--teal-deep); font-weight:800; }
 
+  /* glossary */
   .gloss { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; margin-top:8px; }
   @media (max-width:720px){ .gloss { grid-template-columns:1fr; } }
   .gloss dt { font-weight:800; color:var(--teal-deep); }
@@ -104,6 +111,7 @@
 
   footer { margin-top:50px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.85rem; }
 
+  /* print */
   @media print {
     body { background:#fff; }
     .wrap { display:block; max-width:none; padding:0; }
@@ -119,6 +127,7 @@
 <body id="top">
 <div class="wrap">
 
+  <!-- ===== sidebar ===== -->
   <nav class="toc">
     <h4>Contents</h4>
     <a href="#top">Overview</a>
@@ -139,6 +148,7 @@
     <a href="#tips">Presenter tips</a>
   </nav>
 
+  <!-- ===== main ===== -->
   <main>
     <header>
       <div class="kicker"><span class="dot"></span> Speaker Notes · Presenter Script</div>
@@ -171,6 +181,7 @@
       </div>
     </header>
 
+    <!-- Slide 1 -->
     <section class="slide-note" id="s1">
       <div class="head"><span class="num">1</span><h2>Title<span class="sub">From a daily phone-call sheet to an auto-drafted quotation</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">The title line, the service badges (supplier, opportunity, quotation, procurement), and the team names (Ikhlas, Mostafa, Haya, Sami, Jamie).</p></div>
@@ -185,6 +196,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Let me start with what the day looks like for a procurement manager today."</p></div>
     </section>
 
+    <!-- Slide 2 -->
     <section class="slide-note" id="s2">
       <div class="head"><span class="num">2</span><h2>The Problem<span class="sub">Today, pricing Bulk Cement is manual and repetitive</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Heading plus a numbered 4-step daily loop.</p></div>
@@ -199,6 +211,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"That last step doesn't just cost time — it costs us in a few ways. Let me show you."</p></div>
     </section>
 
+    <!-- Slide 3 -->
     <section class="slide-note" id="s3">
       <div class="head"><span class="num">3</span><h2>Why It Hurts<span class="sub">The hidden cost of the daily sheet</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Three cards — Slow to respond, Error-prone, Not scalable.</p></div>
@@ -213,6 +226,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So here's what we changed — and it's simpler than you'd think."</p></div>
     </section>
 
+    <!-- Slide 4 -->
     <section class="slide-note" id="s4">
       <div class="head"><span class="num">4</span><h2>The Solution, In a Nutshell<span class="sub">Prices flow from the supplier portfolio straight into a draft</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Sticky note "we don't price for them — we just stop the re-typing," plus three cards: Look up by SKU, Draft pre-filled, Clear signal.</p></div>
@@ -227,6 +241,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Let me show you the actual flow, end to end."</p></div>
     </section>
 
+    <!-- Slide 5 -->
     <section class="slide-note" id="s5">
       <div class="head"><span class="num">5</span><h2>How It Works<span class="sub">One RFQ raise, zero manual pricing</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">A left-to-right flow: RFQ Raised → Price Lookup (supplier) → Auto Draft (opportunity) → Draft Ready (quotation). Footnote: best-effort, never blocks the raise.</p></div>
@@ -241,21 +256,22 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So what does the manager actually see on their screen?"</p></div>
     </section>
 
+    <!-- Slide 6 -->
     <section class="slide-note" id="s6">
       <div class="head"><span class="num">6</span><h2>On Screen<span class="sub">procurement-frontend — the manager reviews a pre-filled draft</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Three cards: Pre-filled lines, "Auto-filled" badge, Review &amp; override.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">From the manager's point of view, almost nothing changes about how they work — it just gets easier. On the Open RFQ pricing page, the draft opens with each line already populated with the supplier and the price, instead of a blank grid. The auto-filled lines carry a small badge, so it's obvious which numbers came from the system rather than being typed by hand. And there's a tooltip that explains where the number came from. Crucially, they can still review and override any line before sending — so they stay fully in control. This is built in our procurement frontend and it's localized for both English and Arabic.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">From the manager's point of view, almost nothing changes about how they work — it just gets easier. On the Open RFQ pricing page, the draft opens with each line already populated with the supplier and the price, instead of a blank grid. The auto-filled lines carry a small badge, so it's obvious which numbers came from the system rather than being typed by hand. And there's a tooltip that explains where the number came from. Crucially, they can still review and override any line before sending — so they stay fully in control.</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
           <li>The UX is <b>familiar</b> — same page, just pre-filled.</li>
           <li>The <b>badge + tooltip</b> = transparency; managers trust it because they see the source.</li>
           <li><b>Override is always available</b> — reinforce "they stay in control."</li>
-          <li>It's <b>bilingual (EN/AR)</b>.</li>
         </ul>
       </div>
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Let me put the old way and the new way side by side."</p></div>
     </section>
 
+    <!-- Slide 7 -->
     <section class="slide-note" id="s7">
       <div class="head"><span class="num">7</span><h2>Before vs After<span class="sub">Same prices, none of the busywork</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Two panels. Before: call, hand-calculate, manually fill every RFQ, slow/error-prone. After: portfolio holds prices, draft auto-created, pre-filled per line, manager just reviews.</p></div>
@@ -269,6 +285,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So why is this worth doing?"</p></div>
     </section>
 
+    <!-- Slide 8 -->
     <section class="slide-note" id="s8">
       <div class="head"><span class="num">8</span><h2>Why It's Worth It<span class="sub">Faster quotes, fewer mistakes</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">A "back-of-napkin" panel: manual filling = a few minutes each; auto-drafted = open &amp; review; typing errors → basically gone. Caveat that numbers should be confirmed with province teams.</p></div>
@@ -283,6 +300,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"And we're shipping this in a way that's safe and reversible."</p></div>
     </section>
 
+    <!-- Slide 9 -->
     <section class="slide-note" id="s9">
       <div class="head"><span class="num">9</span><h2>Safe Rollout<span class="sub">Shipped behind a feature flag</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Two cards: Off by default (<code>enable_portfolio_pricing_auto_draft</code>), Never blocks a raise.</p></div>
@@ -297,6 +315,7 @@
       <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So, to sum up."</p></div>
     </section>
 
+    <!-- Slide 10 -->
     <section class="slide-note" id="s10">
       <div class="head"><span class="num">10</span><h2>In Short<span class="sub">The sheet's prices, delivered as a draft — automatically</span></h2></div>
       <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Closing line plus badges (Faster quotes, Fewer errors, Safe flagged rollout), and a highlighted "What this sets up" callout about the central pricing engine.</p></div>
@@ -310,6 +329,7 @@
       </div>
     </section>
 
+    <!-- Q&A -->
     <div class="section-head"><span class="bar"></span><h2>Q&amp;A prep — likely questions</h2></div>
     <section class="qa" id="qa">
       <div class="item"><p class="q">Are you replacing the manager / their pricing judgment?</p><p class="a">No. The manager still sets and owns the prices — those prices live in the portfolio. We're only removing the step where they re-type those same prices into each RFQ. They review and can override every line before sending.</p></div>
@@ -324,6 +344,7 @@
       <div class="item"><p class="q">Which teams / services were involved?</p><p class="a">It spans supplier (the price lookup), opportunity (which orchestrates the auto-draft), quotation (which holds the draft), and the procurement frontend (what the manager sees). Built by Ikhlas, Mostafa, Haya, Sami, and Jamie.</p></div>
     </section>
 
+    <!-- Glossary -->
     <div class="section-head"><span class="bar"></span><h2>Glossary</h2></div>
     <section class="qa" id="glossary">
       <dl class="gloss">
@@ -333,19 +354,17 @@
         <div><dt>Draft quotation</dt><dd>A not-yet-sent quotation the manager reviews and finalizes.</dd></div>
         <div><dt>Credit price</dt><dd>The price populated on the draft from the portfolio (what shows up pre-filled).</dd></div>
         <div><dt>Feature flag</dt><dd>A switch that turns the feature on/off without a code deploy; enables gradual rollout and instant reversal.</dd></div>
-        <div><dt>Mizan</dt><dd>BRKZ's pricing intelligence. This feature is the groundwork for quotation auto-pricing with Mizan and a shared, central pricing engine.</dd></div>
-        <div><dt>Central pricing engine</dt><dd>The company direction: one place that owns pricing logic and serves every module, instead of each feature rebuilding its own.</dd></div>
         <div><dt>Best-effort / async</dt><dd>The auto-draft runs in the background and, if it fails, never blocks the main action (raising the RFQ).</dd></div>
         <div><dt>procurement-frontend</dt><dd>The web app (Next.js + React) where the manager reviews and sends quotes; supports English and Arabic.</dd></div>
       </dl>
     </section>
 
+    <!-- Tips -->
     <div class="section-head"><span class="bar"></span><h2>Presenter tips</h2></div>
     <section id="tips">
       <ul class="tips">
         <li><b>Pace:</b> ~1 minute per slide. If short on time, slides 3 and 7 can be compressed (they reinforce, don't introduce). Never skip 4, 5, and 9.</li>
         <li><b>The three anchors:</b> (1) "we remove re-typing, not judgment," (2) "it never blocks the RFQ," (3) "it's behind a flag, reversible instantly." Land those three and the talk succeeds.</li>
-        <li><b>The forward-looking line:</b> close by framing this as the <b>foundation for Mizan auto-pricing and a central pricing engine for all modules</b> — it shows this is aligned with company direction, not a one-off.</li>
         <li><b>If the deck won't fullscreen</b> on a locked-down browser, press <code>F</code> anyway — it falls back to a full-window mode automatically.</li>
         <li><b>If you blank:</b> read the "Say this" line for the current slide. It's written to be spoken as-is.</li>
       </ul>

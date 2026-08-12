@@ -110,13 +110,12 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 **On screen:** "The manager just reviews a pre-filled draft." Three cards: Pre-filled lines, "Auto-filled" badge, Review & override.
 
 **Say this:**
-> "From the manager's point of view, almost nothing changes about how they work — it just gets easier. On the Open RFQ pricing page, the draft opens with each line already populated with the supplier and the price, instead of a blank grid. The auto-filled lines carry a small badge, so it's obvious which numbers came from the system rather than being typed by hand. And there's a tooltip that explains where the number came from. Crucially, they can still review and override any line before sending — so they stay fully in control. This is built in our procurement frontend and it's localized for both English and Arabic."
+> "From the manager's point of view, almost nothing changes about how they work — it just gets easier. On the Open RFQ pricing page, the draft opens with each line already populated with the supplier and the price, instead of a blank grid. The auto-filled lines carry a small badge, so it's obvious which numbers came from the system rather than being typed by hand. And there's a tooltip that explains where the number came from. Crucially, they can still review and override any line before sending — so they stay fully in control."
 
 **Key points:**
 - The UX is **familiar** — same page, just pre-filled.
 - The **badge + tooltip** = transparency; managers trust it because they can see the source.
 - **Override is always available** — reinforce "they stay in control."
-- It's **bilingual (EN/AR)**.
 
 **Transition:** "Let me put the old way and the new way side by side."
 
@@ -225,8 +224,6 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 - **Draft quotation** — a not-yet-sent quotation the manager reviews and finalizes.
 - **Credit price** — the price populated on the draft from the portfolio (what shows up pre-filled).
 - **Feature flag** — a switch that turns the feature on/off without a code deploy; lets us roll out gradually and reverse instantly.
-- **Mizan** — BRKZ's pricing intelligence. This feature is the groundwork for quotation auto-pricing with Mizan and a shared, central pricing engine.
-- **Central pricing engine** — the company direction: one place that owns pricing logic and serves every module, instead of each feature rebuilding its own.
 - **Best-effort / async** — the auto-draft runs in the background and, if it fails, it never blocks the main action (raising the RFQ).
 - **procurement-frontend** — the web app (Next.js + React) where the manager reviews and sends quotes; supports English and Arabic.
 
@@ -236,6 +233,5 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 
 - **Pace:** ~1 minute per slide. If short on time, the slides you can compress are 3 and 7 (they reinforce, don't introduce). Never skip 4, 5, and 9.
 - **The three anchors:** (1) "we remove re-typing, not judgment," (2) "it never blocks the RFQ," (3) "it's behind a flag, reversible instantly." If you land those three, the talk succeeds.
-- **The forward-looking line:** close by framing this as the **foundation for Mizan auto-pricing and a central pricing engine for all modules** — it shows this is aligned with company direction, not a one-off.
 - **If the deck won't fullscreen** on a locked-down browser, press `F` anyway — it falls back to a full-window mode automatically.
 - **If you blank:** read the "Say this" line for the current slide. It's written to be spoken as-is.
