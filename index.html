@@ -258,6 +258,13 @@
 
   .byline { margin-top: 26px; font-family:"Caveat",cursive; font-size: 1.35rem; color: var(--ink-soft); }
 
+  /* forward-looking "foundation" callout */
+  .foundation { margin-top: 28px; max-width: 780px; background: var(--teal-soft); border: 1px solid var(--teal); box-shadow: var(--shadow); padding: 20px 28px; text-align: center; }
+  .foundation .f-lbl { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-deep); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .foundation .f-lbl .ic { width: 18px; height: 18px; filter: url(#sketch); }
+  .foundation p { color: var(--ink); font-size: 1.04rem; line-height: 1.55; }
+  .foundation strong { color: var(--teal-deep); }
+
   /* ---------- team / crew on title ---------- */
   .team { margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
   .team-label { font-family: "Caveat", cursive; font-size: 1.45rem; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 8px; }
@@ -302,6 +309,7 @@
   .mark::before,
   .member,
   .member .avatar,
+  .foundation,
   .progress { border-radius: 0 !important; }
 </style>
 </head>
@@ -521,7 +529,11 @@
         <div class="badge o"><span class="pin"></span> Fewer errors</div>
         <div class="badge g"><span class="pin"></span> Safe, flagged rollout</div>
       </div>
-      <div class="byline reveal d5">— happy to walk through any of this &nbsp;·&nbsp; Procurement squad, Aug '26</div>
+      <div class="foundation reveal d5">
+        <div class="f-lbl"><svg class="ic"><use href="#ic-rocket"/></svg> What this sets up</div>
+        <p>This is the <strong>foundation for quotation auto-pricing with Mizan</strong> — a first step toward BRKZ's company-wide direction of <strong>one central pricing engine powering every module</strong>.</p>
+      </div>
+      <div class="byline reveal d6">— happy to walk through any of this &nbsp;·&nbsp; Procurement squad, Aug '26</div>
     </section>
 
   </div>
