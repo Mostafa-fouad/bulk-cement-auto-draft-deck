@@ -171,13 +171,14 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 
 ## Slide 10 — In Short (Closing)
 
-**On screen:** "The sheet's prices, delivered as a draft — automatically." Badges: Faster quotes, Fewer errors, Safe flagged rollout.
+**On screen:** "The sheet's prices, delivered as a draft — automatically." Badges: Faster quotes, Fewer errors, Safe flagged rollout. Plus a highlighted "What this sets up" callout about the central pricing engine.
 
 **Say this:**
-> "To wrap up: managers keep owning the day's Bulk Cement prices. We take away the repetitive filling, we speed up every quote, and we keep the portfolio as the single source of truth. It's faster, it's less error-prone, and it's rolled out safely behind a flag. Happy to walk through any part of this in more detail — what questions do you have?"
+> "To wrap up: managers keep owning the day's Bulk Cement prices. We take away the repetitive filling, we speed up every quote, and we keep the portfolio as the single source of truth. It's faster, it's less error-prone, and it's rolled out safely behind a flag. And one last thing worth calling out: this isn't a one-off. It's the foundation for quotation auto-pricing with Mizan — the first concrete step toward the company's direction of a single, central pricing engine that powers every module, not just this one. Happy to walk through any part of this in more detail — what questions do you have?"
 
 **Key points:**
 - Three-word summary: **faster, fewer errors, safe.**
+- **Strategic framing:** this is the **foundation for quotation auto-pricing with Mizan** and the company's **central pricing engine for all modules** — position it as step one, not a one-off.
 - End by **opening the floor** for questions.
 
 ---
@@ -208,6 +209,9 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 **"How much time does it actually save?"**
 > "Directionally, it turns a few minutes of typing per RFQ into a quick review. We'll confirm the real numbers with the province teams once it's rolled out — I don't want to overstate it before we measure."
 
+**"How does this fit the bigger picture / Mizan?"**
+> "This is deliberately a foundation, not a one-off. The same pattern — pull an authoritative price and pre-fill it — is the groundwork for quotation auto-pricing with Mizan. It's the first concrete step toward the company's direction of a single, central pricing engine that serves every module, so pricing logic lives in one place instead of being rebuilt per feature."
+
 **"Which teams / services were involved?"**
 > "It spans supplier (the price lookup), opportunity (which orchestrates the auto-draft), quotation (which holds the draft), and the procurement frontend (what the manager sees). Built by Ikhlas, Mostafa, Haya, Sami, and Jamie."
 
@@ -221,6 +225,8 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 - **Draft quotation** — a not-yet-sent quotation the manager reviews and finalizes.
 - **Credit price** — the price populated on the draft from the portfolio (what shows up pre-filled).
 - **Feature flag** — a switch that turns the feature on/off without a code deploy; lets us roll out gradually and reverse instantly.
+- **Mizan** — BRKZ's pricing intelligence. This feature is the groundwork for quotation auto-pricing with Mizan and a shared, central pricing engine.
+- **Central pricing engine** — the company direction: one place that owns pricing logic and serves every module, instead of each feature rebuilding its own.
 - **Best-effort / async** — the auto-draft runs in the background and, if it fails, it never blocks the main action (raising the RFQ).
 - **procurement-frontend** — the web app (Next.js + React) where the manager reviews and sends quotes; supports English and Arabic.
 
@@ -230,5 +236,6 @@ The story is **"we remove the re-typing, not the manager's judgment."** If you l
 
 - **Pace:** ~1 minute per slide. If short on time, the slides you can compress are 3 and 7 (they reinforce, don't introduce). Never skip 4, 5, and 9.
 - **The three anchors:** (1) "we remove re-typing, not judgment," (2) "it never blocks the RFQ," (3) "it's behind a flag, reversible instantly." If you land those three, the talk succeeds.
+- **The forward-looking line:** close by framing this as the **foundation for Mizan auto-pricing and a central pricing engine for all modules** — it shows this is aligned with company direction, not a one-off.
 - **If the deck won't fullscreen** on a locked-down browser, press `F` anyway — it falls back to a full-window mode automatically.
 - **If you blank:** read the "Say this" line for the current slide. It's written to be spoken as-is.
