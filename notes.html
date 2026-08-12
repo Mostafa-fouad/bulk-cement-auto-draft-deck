@@ -299,11 +299,12 @@
 
     <section class="slide-note" id="s10">
       <div class="head"><span class="num">10</span><h2>In Short<span class="sub">The sheet's prices, delivered as a draft — automatically</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Closing line plus badges: Faster quotes, Fewer errors, Safe flagged rollout.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">To wrap up: managers keep owning the day's Bulk Cement prices. We take away the repetitive filling, we speed up every quote, and we keep the portfolio as the single source of truth. It's faster, it's less error-prone, and it's rolled out safely behind a flag. Happy to walk through any part of this in more detail — what questions do you have?</p></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Closing line plus badges (Faster quotes, Fewer errors, Safe flagged rollout), and a highlighted "What this sets up" callout about the central pricing engine.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">To wrap up: managers keep owning the day's Bulk Cement prices. We take away the repetitive filling, we speed up every quote, and we keep the portfolio as the single source of truth. It's faster, it's less error-prone, and it's rolled out safely behind a flag. And one last thing worth calling out: this isn't a one-off. It's the foundation for quotation auto-pricing with Mizan — the first concrete step toward the company's direction of a single, central pricing engine that powers every module, not just this one. Happy to walk through any part of this in more detail — what questions do you have?</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
           <li>Three-word summary: <b>faster, fewer errors, safe.</b></li>
+          <li><b>Strategic framing:</b> this is the <b>foundation for quotation auto-pricing with Mizan</b> and the company's <b>central pricing engine for all modules</b> — position it as step one, not a one-off.</li>
           <li>End by <b>opening the floor</b> for questions.</li>
         </ul>
       </div>
@@ -319,6 +320,7 @@
       <div class="item"><p class="q">Where do the prices actually come from?</p><p class="a">From the supplier portfolio — that's where the day's supplier prices are stored per product and city. The manager's daily prices feed into that, and we read the latest active one at RFQ time.</p></div>
       <div class="item"><p class="q">How do managers know which numbers were auto-filled?</p><p class="a">Auto-sourced lines carry a badge, and a tooltip explains where the number came from. Anything they type themselves looks normal.</p></div>
       <div class="item"><p class="q">How much time does it actually save?</p><p class="a">Directionally, it turns a few minutes of typing per RFQ into a quick review. We'll confirm the real numbers with the province teams once it's rolled out — I don't want to overstate it before we measure.</p></div>
+      <div class="item"><p class="q">How does this fit the bigger picture / Mizan?</p><p class="a">This is deliberately a foundation, not a one-off. The same pattern — pull an authoritative price and pre-fill it — is the groundwork for quotation auto-pricing with Mizan. It's the first concrete step toward the company's direction of a single, central pricing engine that serves every module, so pricing logic lives in one place instead of being rebuilt per feature.</p></div>
       <div class="item"><p class="q">Which teams / services were involved?</p><p class="a">It spans supplier (the price lookup), opportunity (which orchestrates the auto-draft), quotation (which holds the draft), and the procurement frontend (what the manager sees). Built by Ikhlas, Mostafa, Haya, Sami, and Jamie.</p></div>
     </section>
 
@@ -331,6 +333,8 @@
         <div><dt>Draft quotation</dt><dd>A not-yet-sent quotation the manager reviews and finalizes.</dd></div>
         <div><dt>Credit price</dt><dd>The price populated on the draft from the portfolio (what shows up pre-filled).</dd></div>
         <div><dt>Feature flag</dt><dd>A switch that turns the feature on/off without a code deploy; enables gradual rollout and instant reversal.</dd></div>
+        <div><dt>Mizan</dt><dd>BRKZ's pricing intelligence. This feature is the groundwork for quotation auto-pricing with Mizan and a shared, central pricing engine.</dd></div>
+        <div><dt>Central pricing engine</dt><dd>The company direction: one place that owns pricing logic and serves every module, instead of each feature rebuilding its own.</dd></div>
         <div><dt>Best-effort / async</dt><dd>The auto-draft runs in the background and, if it fails, never blocks the main action (raising the RFQ).</dd></div>
         <div><dt>procurement-frontend</dt><dd>The web app (Next.js + React) where the manager reviews and sends quotes; supports English and Arabic.</dd></div>
       </dl>
@@ -341,6 +345,7 @@
       <ul class="tips">
         <li><b>Pace:</b> ~1 minute per slide. If short on time, slides 3 and 7 can be compressed (they reinforce, don't introduce). Never skip 4, 5, and 9.</li>
         <li><b>The three anchors:</b> (1) "we remove re-typing, not judgment," (2) "it never blocks the RFQ," (3) "it's behind a flag, reversible instantly." Land those three and the talk succeeds.</li>
+        <li><b>The forward-looking line:</b> close by framing this as the <b>foundation for Mizan auto-pricing and a central pricing engine for all modules</b> — it shows this is aligned with company direction, not a one-off.</li>
         <li><b>If the deck won't fullscreen</b> on a locked-down browser, press <code>F</code> anyway — it falls back to a full-window mode automatically.</li>
         <li><b>If you blank:</b> read the "Say this" line for the current slide. It's written to be spoken as-is.</li>
       </ul>
