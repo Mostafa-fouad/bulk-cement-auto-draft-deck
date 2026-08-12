@@ -271,7 +271,9 @@
   .team-label .ic { width: 22px; height: 22px; color: var(--orange); }
   .crew { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
   .member { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 8px 18px 8px 8px; font-weight: 700; font-size: 1rem; }
-  .member .avatar { width: 38px; height: 38px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1rem; }
+  .member .avatar { width: 38px; height: 38px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+  .member-info { display: flex; flex-direction: column; gap: 2px; line-height: 1.2; }
+  .member-role { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
   .member:nth-child(1) .avatar { background: var(--teal); }
   .member:nth-child(2) .avatar { background: var(--orange); }
   .member:nth-child(3) .avatar { background: var(--lime-deep); }
@@ -385,11 +387,11 @@
       <div class="team reveal d5">
         <span class="team-label"><svg class="ic"><use href="#ic-spark"/></svg> built by the crew</span>
         <div class="crew">
-          <div class="member"><span class="avatar">I</span> Ikhlas</div>
-          <div class="member"><span class="avatar">M</span> Mostafa</div>
-          <div class="member"><span class="avatar">H</span> Haya</div>
-          <div class="member"><span class="avatar">S</span> Sami</div>
-          <div class="member"><span class="avatar">J</span> Jamie</div>
+          <div class="member"><span class="avatar">I</span><div class="member-info"><span>Ikhlas</span><span class="member-role">Engineering</span></div></div>
+          <div class="member"><span class="avatar">M</span><div class="member-info"><span>Mostafa</span><span class="member-role">Engineering</span></div></div>
+          <div class="member"><span class="avatar">H</span><div class="member-info"><span>Haya</span><span class="member-role">Product</span></div></div>
+          <div class="member"><span class="avatar">S</span><div class="member-info"><span>Sami</span><span class="member-role">Procurement</span></div></div>
+          <div class="member"><span class="avatar">J</span><div class="member-info"><span>Jamie</span><span class="member-role">Procurement</span></div></div>
         </div>
       </div>
       <div class="aside a-bl">one manager, every province,<br>every single day
