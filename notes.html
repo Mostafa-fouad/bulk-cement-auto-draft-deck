@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Speaker Notes · Portfolio Pricing → Auto Draft</title>
+<title>Speaker Notes · Supplier Quote Pricing → Extraction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -134,14 +134,10 @@
     <div class="sep"></div>
     <a href="#s1">1 · Title</a>
     <a href="#s2">2 · The Problem</a>
-    <a href="#s3">3 · Why It Hurts</a>
-    <a href="#s4">4 · Solution</a>
-    <a href="#s5">5 · How It Works</a>
-    <a href="#s6">6 · On Screen (FE)</a>
-    <a href="#s7">7 · Before vs After</a>
-    <a href="#s8">8 · Why Worth It</a>
-    <a href="#s9">9 · Safe Rollout</a>
-    <a href="#s10">10 · In Short</a>
+    <a href="#s3">3 · How It Works</a>
+    <a href="#s4">4 · The Impact</a>
+    <a href="#s5">5 · What This Sets Up</a>
+    <a href="#s6">6 · In Short</a>
     <div class="sep"></div>
     <a href="#qa">Q&amp;A prep</a>
     <a href="#glossary">Glossary</a>
@@ -152,10 +148,10 @@
   <main>
     <header>
       <div class="kicker"><span class="dot"></span> Speaker Notes · Presenter Script</div>
-      <h1>Portfolio Pricing <span class="accent">→ Auto Draft</span></h1>
+      <h1>Supplier Quote Pricing <span class="accent">→ Extraction</span></h1>
       <div class="meta">
-        <span class="chip"><span class="k">Deck</span> <a href="https://raw.githack.com/Mostafa-fouad/bulk-cement-auto-draft-deck/master/index.html" target="_blank" rel="noopener">open presentation ↗</a></span>
-        <span class="chip"><span class="k">Length</span> 10 slides · 8–12 min</span>
+        <span class="chip"><span class="k">Deck</span> <a href="https://rawcdn.githack.com/Mostafa-fouad/bulk-cement-auto-draft-deck/1e65684/index.html" target="_blank" rel="noopener">open presentation ↗</a></span>
+        <span class="chip"><span class="k">Length</span> 6 slides · 6–8 min</span>
         <span class="chip"><span class="k">Controls</span> <code>→</code> next · <code>←</code> back · <code>F</code> fullscreen</span>
       </div>
 
@@ -172,159 +168,92 @@
 
       <div class="callout">
         <div class="lbl">The 15-second version (hallway pitch)</div>
-        <p class="say">Procurement managers get cement prices by phone every day, put them in a sheet, and then re-type those prices into every single RFQ by hand. We now pull the price straight from the system and auto-create a draft quotation with the price already filled in — so the manager just reviews and sends instead of re-typing. It's behind a feature flag, so it's safe to turn on province by province.</p>
+        <p class="say">Procurement receives supplier quotations as PDFs and photos — often scanned Arabic documents — and types every line into the supplier portfolio by hand. That takes about 130 hours a month. We extract the products and prices with AI, a person confirms each line, and then we write to the portfolio. Same judgment, almost none of the typing — down to about 9 hours a month, a 93% cut.</p>
       </div>
 
       <div class="callout remember">
         <div class="lbl">One thing to remember</div>
-        <p class="hand">We remove the re-typing, not the manager's judgment. If you land only one idea, land that one.</p>
+        <p class="hand">We extract the document. They still confirm the line. If you land only one idea, land that one.</p>
       </div>
     </header>
 
     <!-- Slide 1 -->
     <section class="slide-note" id="s1">
-      <div class="head"><span class="num">1</span><h2>Title<span class="sub">From a daily phone-call sheet to an auto-drafted quotation</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">The title line, the service badges (supplier, opportunity, quotation, procurement), and the team names (Ikhlas, Mostafa, Haya, Sami, Jamie).</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">Hi everyone — thanks for the time. This is a small change with a real day-to-day impact for our procurement managers. Today, pricing Bulk Cement is a manual, repetitive routine. What we've built takes the prices that already live in our system and turns them into a ready-to-go draft quotation — automatically. I'll walk you through the problem, how it works, and how we're rolling it out safely. It should take about ten minutes.</p></div>
+      <div class="head"><span class="num">1</span><h2>Title<span class="sub">From a supplier quote PDF to a priced portfolio</span></h2></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">The title, a short subtitle, and the team with roles. No service badges, no four-step recap.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">Hi everyone — this is about getting supplier quote prices into the portfolio without the typing. Quotes arrive as PDFs and photos, often scanned Arabic. Today we re-key them by hand. I'll cover the problem, the flow, and the impact — about five minutes.</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
-          <li>This is about <b>Bulk Cement pricing</b> in procurement.</li>
-          <li>Touches four services (supplier, opportunity, quotation, procurement frontend) — but don't dwell on plumbing yet.</li>
-          <li>Set expectations: short talk, safe rollout.</li>
+          <li>This is <b>quote extraction into the portfolio</b> — not auto-drafting RFQs.</li>
+          <li>Don't preview the 93% or the four steps here — those have their own slides.</li>
         </ul>
       </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Let me start with what the day looks like for a procurement manager today."</p></div>
+      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Here's the work today."</p></div>
     </section>
 
     <!-- Slide 2 -->
     <section class="slide-note" id="s2">
-      <div class="head"><span class="num">2</span><h2>The Problem<span class="sub">Today, pricing Bulk Cement is manual and repetitive</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Heading plus a numbered 4-step daily loop.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">We have one procurement manager per province, and every single day they run the same loop. First, they call the manufacturers to get that day's Bulk Cement prices. They put those prices into a spreadsheet, per factory customer. Then they calculate the buy price and the selling price by hand. And finally — this is the painful part — they re-type those prices into every Bulk RFQ, one by one. The first three steps are real expertise. The fourth step is just copy-paste, and it happens over and over, all day.</p></div>
+      <div class="head"><span class="num">2</span><h2>The Problem<span class="sub">Today we re-type every quote into the portfolio</span></h2></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">One sentence on documents, then two cards: ~130 hours / month, and a typo sticks.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">Supplier quotations arrive as PDFs and photos — often scanned Arabic, mixed languages, units, VAT. Someone reads every line and types it into the supplier portfolio. That data entry is about 130 hours a month. And if the SKU or the unit price is wrong, it stays in the portfolio and every later quote inherits it.</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
-          <li><b>One manager per province</b> — a per-person, per-day routine, so the pain multiplies.</li>
-          <li>Steps 1–3 (call, sheet, calculate) = the manager's real value. Keep it.</li>
-          <li>Step 4 (re-type into every RFQ) = pure busywork. <b>This is what we're removing.</b></li>
+          <li>Two costs only: <b>time</b> and <b>wrong prices that propagate</b>.</li>
+          <li>Don't walk a four-step manual loop — the next slide is the new loop.</li>
         </ul>
       </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"That last step doesn't just cost time — it costs us in a few ways. Let me show you."</p></div>
+      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Here's what we do instead."</p></div>
     </section>
 
     <!-- Slide 3 -->
     <section class="slide-note" id="s3">
-      <div class="head"><span class="num">3</span><h2>Why It Hurts<span class="sub">The hidden cost of the daily sheet</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Three cards — Slow to respond, Error-prone, Not scalable.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">That manual filling hurts us in three ways. First, it's slow — every RFQ waits on someone to copy prices across, which delays the quote we send to a factory customer. Second, it's error-prone — typing prices by hand into each RFQ invites mistakes, and a mistake here is a mispriced deal. And third, it doesn't scale — the knowledge lives in one person's spreadsheet, which is hard to cover when they're out, hard to audit, and hard to grow as we add provinces.</p></div>
+      <div class="head"><span class="num">3</span><h2>How It Works<span class="sub">Upload. Extract. Confirm. Write.</span></h2></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Four boxes, a sticky note "we extract — they still confirm," and a footer that AI proposes and procurement confirms.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">Four steps. Upload the PDF or photo with the supplier and the city — a quote prices one city. Extract: AI returns line items with a confidence score. Confirm: match the SKU and unit, edit the price if needed, create the product only if it's new. Write: the existing portfolio API. Nothing is written until a person confirms the line. We extract. They still confirm.</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
-          <li>Three costs: <b>speed, accuracy, scalability.</b></li>
-          <li>Frame errors as <b>business risk</b> (mispriced deals), not just typos.</li>
-          <li>"Knowledge in one person's sheet" = a continuity / coverage risk.</li>
+          <li>Walk the four boxes once. That's the whole product.</li>
+          <li>Land the sticky note: <b>AI proposes, procurement confirms.</b></li>
+          <li>Don't open Approaches A/B/C unless asked.</li>
         </ul>
       </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So here's what we changed — and it's simpler than you'd think."</p></div>
+      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"What that does to the hours."</p></div>
     </section>
 
     <!-- Slide 4 -->
     <section class="slide-note" id="s4">
-      <div class="head"><span class="num">4</span><h2>The Solution, In a Nutshell<span class="sub">Prices flow from the supplier portfolio straight into a draft</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Sticky note "we don't price for them — we just stop the re-typing," plus three cards: Look up by SKU, Draft pre-filled, Clear signal.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">The key idea is this: the manager still owns the day's prices — we are not pricing anything for them. But instead of them re-typing those prices into every RFQ, the system does it. The prices already live in what we call the supplier portfolio. So when an RFQ comes in, we look up the freshest price for each product, we automatically create a draft quotation with that price already filled in, and we clearly flag those prices as coming from the system so nothing looks like magic. The manager opens a draft that's already populated, instead of a blank form.</p></div>
+      <div class="head"><span class="num">4</span><h2>The Impact<span class="sub">93% less work for procurement</span></h2></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">93%. ~130 hours/month re-typing → 9 hours/month confirming.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">That's a 93 percent cut — from about 130 hours a month of re-typing down to 9 hours of confirming lines. Same judgment. Almost none of the typing.</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
-          <li><b>Say the sticky note out loud</b> — it defuses the biggest fear ("is this replacing my judgment?").</li>
-          <li>Three moves: <b>look up by product → pre-fill a draft → flag it as system-sourced.</b></li>
-          <li>"Supplier portfolio" = where the day's prices already live (see Glossary).</li>
+          <li>State the triad once: <b>93% · 130 · 9</b> — then stop. Don't explain the problem again.</li>
         </ul>
       </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Let me show you the actual flow, end to end."</p></div>
+      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"And this is the input to something bigger."</p></div>
     </section>
 
     <!-- Slide 5 -->
     <section class="slide-note" id="s5">
-      <div class="head"><span class="num">5</span><h2>How It Works<span class="sub">One RFQ raise, zero manual pricing</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">A left-to-right flow: RFQ Raised → Price Lookup (supplier) → Auto Draft (opportunity) → Draft Ready (quotation). Footnote: best-effort, never blocks the raise.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">Here's the whole flow. It starts when a manager raises a Bulk RFQ for a province. That triggers a price lookup — we fetch the latest active portfolio price for each product in that city. Those prices get passed along and a draft quotation is built automatically. The end result is a draft that's ready, with the credit price pre-filled and flagged as portfolio-sourced. One important detail: this whole thing is best-effort and runs in the background. If a price is missing for some reason, we do not block the RFQ from being raised — the manager can always fill it in manually, exactly like today. We never make things worse than the current process.</p></div>
+      <div class="head"><span class="num">5</span><h2>What This Sets Up<span class="sub">Authoritative prices, in one portfolio</span></h2></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">One line: confirmed prices land where every other module already reads.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">Confirmed prices land in the supplier portfolio — the same place every other module already reads from. That's the input side of a central pricing engine.</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
-          <li>Four steps, one per service — or just say "raise → look up → auto-draft → ready."</li>
-          <li><b>"Best-effort / never blocks the raise"</b> is the safety message. Say it clearly.</li>
-          <li>If a lookup fails, we fall back to today's manual behavior — no regression.</li>
+          <li>Strategy beat only — save Mizan and the wrap for the next slide.</li>
         </ul>
       </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So what does the manager actually see on their screen?"</p></div>
+      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So, in short."</p></div>
     </section>
 
     <!-- Slide 6 -->
     <section class="slide-note" id="s6">
-      <div class="head"><span class="num">6</span><h2>On Screen<span class="sub">procurement-frontend — the manager reviews a pre-filled draft</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Three cards: Pre-filled lines, "Auto-filled" badge, Review &amp; override.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">From the manager's point of view, almost nothing changes about how they work — it just gets easier. On the Open RFQ pricing page, the draft opens with each line already populated with the supplier and the price, instead of a blank grid. The auto-filled lines carry a small badge, so it's obvious which numbers came from the system rather than being typed by hand. And there's a tooltip that explains where the number came from. Crucially, they can still review and override any line before sending — so they stay fully in control.</p></div>
+      <div class="head"><span class="num">6</span><h2>In Short<span class="sub">The quote's prices, confirmed into the portfolio — without the typing</span></h2></div>
+      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">The closing line, three badges (93% less work, Human confirms every line, Portfolio stays the source of truth), and the Mizan callout.</p></div>
+      <div class="block"><span class="tag say">Say this</span><p class="say">In short: the quote's prices, confirmed into the portfolio, without the typing. Upload, extract, confirm, write. Procurement keeps the judgment; the system takes the document work. And this is the foundation for quotation auto-pricing with Mizan — toward one central pricing engine for every module. Happy to walk through any of this — what questions do you have?</p></div>
       <div class="block"><span class="tag key">Key points</span>
         <ul class="key">
-          <li>The UX is <b>familiar</b> — same page, just pre-filled.</li>
-          <li>The <b>badge + tooltip</b> = transparency; managers trust it because they see the source.</li>
-          <li><b>Override is always available</b> — reinforce "they stay in control."</li>
-        </ul>
-      </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"Let me put the old way and the new way side by side."</p></div>
-    </section>
-
-    <!-- Slide 7 -->
-    <section class="slide-note" id="s7">
-      <div class="head"><span class="num">7</span><h2>Before vs After<span class="sub">Same prices, none of the busywork</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Two panels. Before: call, hand-calculate, manually fill every RFQ, slow/error-prone. After: portfolio holds prices, draft auto-created, pre-filled per line, manager just reviews.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">Side by side: Before, the manager calls manufacturers, hand-calculates buy and sell, then manually fills every single Bulk RFQ from the sheet — slow, error-prone, and tied to one person. After, the portfolio already holds the day's prices, a draft is auto-created the moment an RFQ is raised, the supplier and credit price are pre-filled on every line, and the manager just reviews, tweaks if needed, and sends. Same prices, same expertise — none of the repetitive filling.</p></div>
-      <div class="block"><span class="tag key">Key points</span>
-        <ul class="key">
-          <li>The <b>only</b> thing that changed is the busywork step.</li>
-          <li>"Same prices, same expertise" — repeat the reassurance.</li>
-        </ul>
-      </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So why is this worth doing?"</p></div>
-    </section>
-
-    <!-- Slide 8 -->
-    <section class="slide-note" id="s8">
-      <div class="head"><span class="num">8</span><h2>Why It's Worth It<span class="sub">Faster quotes, fewer mistakes</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">A "back-of-napkin" panel: manual filling = a few minutes each; auto-drafted = open &amp; review; typing errors → basically gone. Caveat that numbers should be confirmed with province teams.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">Here's the rough impact — and I want to be honest that this is back-of-a-napkin, not a measured study yet. Today, filling from the sheet takes a few minutes on every RFQ, and that adds up across a full day and across provinces. With an auto-drafted quote, that becomes 'open and review' — the typing is gone. And because nobody's re-keying numbers, pricing typos basically disappear. We'll want to confirm the exact time savings with the province teams once it's live, but directionally: faster quotes, fewer mistakes. And again — the manager's expertise stays in charge of pricing; we're only taking out the copy-paste.</p></div>
-      <div class="block"><span class="tag key">Key points</span>
-        <ul class="key">
-          <li><b>Be upfront that the numbers are rough</b> — honesty builds credibility.</li>
-          <li>Defensible claims: <b>less time per RFQ</b> and <b>fewer typing errors.</b></li>
-          <li>Close the loop: expertise stays, copy-paste goes.</li>
-        </ul>
-      </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"And we're shipping this in a way that's safe and reversible."</p></div>
-    </section>
-
-    <!-- Slide 9 -->
-    <section class="slide-note" id="s9">
-      <div class="head"><span class="num">9</span><h2>Safe Rollout<span class="sub">Shipped behind a feature flag</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Two cards: Off by default (<code>enable_portfolio_pricing_auto_draft</code>), Never blocks a raise.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">This is shipped behind a feature flag. That means the whole auto-draft flow is gated right at the start — it stays off until we're ready, and we can switch it on province by province without any redeploy. If we see anything odd, we flip it off instantly. And as I mentioned, it runs asynchronously and best-effort: if the auto-draft ever fails, we just log it, and the RFQ raise itself is completely untouched. So there's no scenario where this new feature blocks someone from doing their job the way they do today.</p></div>
-      <div class="block"><span class="tag key">Key points</span>
-        <ul class="key">
-          <li><b>Feature flag = off by default, gradual, instantly reversible, no redeploy.</b></li>
-          <li><b>Async + best-effort = never blocks the core workflow.</b></li>
-          <li>This is your answer to "what if it breaks?" — you can turn it off.</li>
-        </ul>
-      </div>
-      <div class="block"><span class="tag trans">Transition</span><p class="trans-txt">"So, to sum up."</p></div>
-    </section>
-
-    <!-- Slide 10 -->
-    <section class="slide-note" id="s10">
-      <div class="head"><span class="num">10</span><h2>In Short<span class="sub">The sheet's prices, delivered as a draft — automatically</span></h2></div>
-      <div class="block"><span class="tag screen">On screen</span><p class="screen-txt">Closing line plus badges (Faster quotes, Fewer errors, Safe flagged rollout), and a highlighted "What this sets up" callout about the central pricing engine.</p></div>
-      <div class="block"><span class="tag say">Say this</span><p class="say">To wrap up: managers keep owning the day's Bulk Cement prices. We take away the repetitive filling, we speed up every quote, and we keep the portfolio as the single source of truth. It's faster, it's less error-prone, and it's rolled out safely behind a flag. And one last thing worth calling out: this isn't a one-off. It's the foundation for quotation auto-pricing with Mizan — the first concrete step toward the company's direction of a single, central pricing engine that powers every module, not just this one. Happy to walk through any part of this in more detail — what questions do you have?</p></div>
-      <div class="block"><span class="tag key">Key points</span>
-        <ul class="key">
-          <li>Three-word summary: <b>faster, fewer errors, safe.</b></li>
-          <li><b>Strategic framing:</b> this is the <b>foundation for quotation auto-pricing with Mizan</b> and the company's <b>central pricing engine for all modules</b> — position it as step one, not a one-off.</li>
-          <li>End by <b>opening the floor</b> for questions.</li>
+          <li>This is the closer — land the line, then open the floor.</li>
         </ul>
       </div>
     </section>
@@ -332,30 +261,29 @@
     <!-- Q&A -->
     <div class="section-head"><span class="bar"></span><h2>Q&amp;A prep — likely questions</h2></div>
     <section class="qa" id="qa">
-      <div class="item"><p class="q">Are you replacing the manager / their pricing judgment?</p><p class="a">No. The manager still sets and owns the prices — those prices live in the portfolio. We're only removing the step where they re-type those same prices into each RFQ. They review and can override every line before sending.</p></div>
-      <div class="item"><p class="q">What happens if the price is wrong or out of date?</p><p class="a">The manager reviews the draft before sending and can override any line. And because the auto-filled lines are badged with a tooltip showing the source, it's easy to spot and correct. The system uses the latest active portfolio price for that product and city.</p></div>
-      <div class="item"><p class="q">What if the auto-draft fails or a price is missing?</p><p class="a">It's best-effort and runs in the background. If it can't build the draft, the RFQ raise is unaffected and the manager just fills it in manually, exactly like today. It never blocks anyone.</p></div>
-      <div class="item"><p class="q">Is this live everywhere right now?</p><p class="a">It's behind a feature flag and off by default. We can turn it on province by province without a redeploy, and turn it off instantly if needed.</p></div>
-      <div class="item"><p class="q">Does this handle other products, not just Bulk Cement?</p><p class="a">Right now the focus is Bulk Cement, since that's where the daily manual-pricing pain is sharpest. The approach — pull the latest portfolio price and pre-fill a draft — could extend to other products later, but that's not in scope for this rollout.</p></div>
-      <div class="item"><p class="q">Where do the prices actually come from?</p><p class="a">From the supplier portfolio — that's where the day's supplier prices are stored per product and city. The manager's daily prices feed into that, and we read the latest active one at RFQ time.</p></div>
-      <div class="item"><p class="q">How do managers know which numbers were auto-filled?</p><p class="a">Auto-sourced lines carry a badge, and a tooltip explains where the number came from. Anything they type themselves looks normal.</p></div>
-      <div class="item"><p class="q">How much time does it actually save?</p><p class="a">Directionally, it turns a few minutes of typing per RFQ into a quick review. We'll confirm the real numbers with the province teams once it's rolled out — I don't want to overstate it before we measure.</p></div>
-      <div class="item"><p class="q">How does this fit the bigger picture / Mizan?</p><p class="a">This is deliberately a foundation, not a one-off. The same pattern — pull an authoritative price and pre-fill it — is the groundwork for quotation auto-pricing with Mizan. It's the first concrete step toward the company's direction of a single, central pricing engine that serves every module, so pricing logic lives in one place instead of being rebuilt per feature.</p></div>
-      <div class="item"><p class="q">Which teams / services were involved?</p><p class="a">It spans supplier (the price lookup), opportunity (which orchestrates the auto-draft), quotation (which holds the draft), and the procurement frontend (what the manager sees). Built by Ikhlas, Mostafa, Haya, Sami, and Jamie.</p></div>
+      <div class="item"><p class="q">Are you letting AI write prices into production?</p><p class="a">No. Extraction is a proposal. Nothing is written until a person confirms the line — SKU, unit, and price. They can edit before confirming.</p></div>
+      <div class="item"><p class="q">What about scanned Arabic documents?</p><p class="a">That's the main input. Extraction returns raw text plus a per-line confidence score. Low-confidence or messy lines are exactly why confirmation is one-by-one, not a bulk apply.</p></div>
+      <div class="item"><p class="q">What if the product doesn't exist in the catalogue?</p><p class="a">Create it first, using the same AI naming conventions we already use for products extracted from documents — bilingual EN/AR, live category and unit lists — then confirm the price. Creation stays behind the human gate; we don't auto-approve garbage from a bad scan.</p></div>
+      <div class="item"><p class="q">Which approach are we taking — A, B, or C?</p><p class="a">The recommended shape is Approach A for extraction (a quote type in document-extraction-service) plus a small catalogue naming endpoint at confirmation time — the hybrid in the design note. Prices stay out of the catalogue service. If someone wants the bake-off, point them at the design doc; don't derail the talk.</p></div>
+      <div class="item"><p class="q">Do we need a new API to write prices?</p><p class="a">No. Each confirmed line calls the existing PATCH on supplier-service that already find-or-creates the portfolio document for (supplier, city, country) and writes the per-unit price. N lines, N calls — that matches one-by-one confirmation.</p></div>
+      <div class="item"><p class="q">How did you get to 93% / 130 hours / 9 hours?</p><p class="a">That's the procurement team's estimate of time spent re-keying quote documents today versus time spent reviewing extracted lines. State it as their number. Don't invent a study behind it.</p></div>
+      <div class="item"><p class="q">Does this auto-draft quotations / fill RFQs?</p><p class="a">No — that's a different idea. This talk is only about getting quote prices into the portfolio. Filling the portfolio is what later lets auto-pricing and Mizan work. Don't mix the two.</p></div>
+      <div class="item"><p class="q">How does this fit the bigger picture / Mizan?</p><p class="a">This is the input side of a central pricing engine. Authoritative prices live in the portfolio. Extracting them from supplier quotes — with a human confirm — is the first concrete step so every module can read from one place instead of rebuilding pricing per feature.</p></div>
+      <div class="item"><p class="q">Which teams were involved?</p><p class="a">Ikhlas and Mostafa on engineering, Haya on product, Sami and Jamie on procurement.</p></div>
     </section>
 
     <!-- Glossary -->
     <div class="section-head"><span class="bar"></span><h2>Glossary</h2></div>
     <section class="qa" id="glossary">
       <dl class="gloss">
-        <div><dt>RFQ</dt><dd>Request For Quote. When a customer wants pricing, an RFQ is raised; the manager responds with a quotation.</dd></div>
-        <div><dt>Bulk Cement</dt><dd>The product line this feature targets; priced daily from manufacturers.</dd></div>
-        <div><dt>Supplier portfolio</dt><dd>The store of the day's supplier prices, per product and city. The "source of truth" for pricing.</dd></div>
-        <div><dt>Draft quotation</dt><dd>A not-yet-sent quotation the manager reviews and finalizes.</dd></div>
-        <div><dt>Credit price</dt><dd>The price populated on the draft from the portfolio (what shows up pre-filled).</dd></div>
-        <div><dt>Feature flag</dt><dd>A switch that turns the feature on/off without a code deploy; enables gradual rollout and instant reversal.</dd></div>
-        <div><dt>Best-effort / async</dt><dd>The auto-draft runs in the background and, if it fails, never blocks the main action (raising the RFQ).</dd></div>
-        <div><dt>procurement-frontend</dt><dd>The web app (Next.js + React) where the manager reviews and sends quotes; supports English and Arabic.</dd></div>
+        <div><dt>Supplier quote</dt><dd>A PDF or photo from a supplier listing products, units, and prices — often scanned Arabic with mixed AR/EN.</dd></div>
+        <div><dt>Supplier portfolio</dt><dd>The store of supplier prices per product, unit, city, and country. The write target of this flow.</dd></div>
+        <div><dt>Extraction</dt><dd>An AI pass that turns a document into structured line items (raw text, qty, unit, unit price, confidence).</dd></div>
+        <div><dt>Confirmation</dt><dd>The human step: match SKU and unit, review/edit the price, then allow the write.</dd></div>
+        <div><dt>Catalogue / SKU</dt><dd>The product master. Quote lines must resolve to a catalogue SKU before they can be priced.</dd></div>
+        <div><dt>Canonical naming</dt><dd>The existing bilingual (nameEn / nameAr) rules used when creating products from documents.</dd></div>
+        <div><dt>Mizan</dt><dd>The direction for quotation auto-pricing off a central pricing engine. This flow feeds that engine; it is not Mizan itself.</dd></div>
+        <div><dt>Central pricing engine</dt><dd>Company direction: one place holds prices, every module reads from it — instead of pricing logic per feature.</dd></div>
       </dl>
     </section>
 
@@ -363,15 +291,15 @@
     <div class="section-head"><span class="bar"></span><h2>Presenter tips</h2></div>
     <section id="tips">
       <ul class="tips">
-        <li><b>Pace:</b> ~1 minute per slide. If short on time, slides 3 and 7 can be compressed (they reinforce, don't introduce). Never skip 4, 5, and 9.</li>
-        <li><b>The three anchors:</b> (1) "we remove re-typing, not judgment," (2) "it never blocks the RFQ," (3) "it's behind a flag, reversible instantly." Land those three and the talk succeeds.</li>
-        <li><b>If the deck won't fullscreen</b> on a locked-down browser, press <code>F</code> anyway — it falls back to a full-window mode automatically.</li>
+        <li><b>Pace:</b> ~1 minute per slide. Don't skip any — there are only six.</li>
+        <li><b>The three anchors:</b> (1) "we extract, they still confirm," (2) "93% — 130 hours down to 9," (3) "this fills the portfolio for a central pricing engine." Land those three and the talk succeeds.</li>
+        <li><b>Don't mix the other idea:</b> this is not auto-drafting RFQs. If asked, say that's a later step once the portfolio is the source of truth.</li>
         <li><b>If you blank:</b> read the "Say this" line for the current slide. It's written to be spoken as-is.</li>
       </ul>
     </section>
 
     <footer>
-      Portfolio Pricing → Auto Draft · Presenter script · Procurement squad, Aug '26 &nbsp;·&nbsp; Tip: print this page (Cmd/Ctrl-P) for a paper cue sheet.
+      Supplier Quote Pricing → Extraction · Presenter script · Procurement squad, Aug '26 &nbsp;·&nbsp; Tip: print this page (Cmd/Ctrl-P) for a paper cue sheet.
     </footer>
   </main>
 </div>

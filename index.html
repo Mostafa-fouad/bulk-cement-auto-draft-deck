@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Portfolio Pricing → Auto Draft</title>
+<title>Supplier Quote Pricing → Extraction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -104,6 +104,7 @@
   /* ---------- cards ---------- */
   .cards { display: grid; gap: 22px; margin-top: 40px; width: 100%; max-width: 1000px; }
   .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .cards.c4 { grid-template-columns: repeat(4, 1fr); }
   .cards.c2 { grid-template-columns: repeat(2, 1fr); }
 
   .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; box-shadow: var(--shadow); text-align: left; transition: transform .3s ease, box-shadow .3s ease; }
@@ -135,9 +136,10 @@
   .arrow { flex: 0 0 46px; display: grid; place-items: center; color: var(--orange); }
   .arrow .ic { width: 26px; height: 26px; stroke-width: 2.2; }
   @media (max-width: 900px) {
-    .cards.c3 { grid-template-columns: repeat(2, 1fr); }
+    .cards.c3, .cards.c4 { grid-template-columns: repeat(2, 1fr); }
     .arrow { transform: rotate(90deg); flex-basis: 100%; height: 30px; }
     .node { flex-basis: 100%; }
+    .hours .arrow { flex-basis: 100%; height: auto; }
   }
   .slide.active .node { animation: pop .5s ease both; }
   .slide.active .node:nth-child(1){ animation-delay:.1s } 
@@ -256,6 +258,18 @@
   .napkin .circle-num svg { position:absolute; inset:-10px -8px; width: calc(100% + 16px); height: calc(100% + 20px); stroke: var(--orange); fill:none; stroke-width:2.2; filter:url(#sketch); }
   .napkin .caveat { font-family:"Caveat",cursive; font-size: 1.15rem; color: var(--orange-strong); margin-top: 16px; }
 
+  /* hours impact pair */
+  .hours { display: flex; gap: 28px; align-items: stretch; margin-top: 36px; flex-wrap: wrap; justify-content: center; }
+  .hours .block { min-width: 220px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 22px 28px; text-align: center; }
+  .hours .block.from { background: #fdf1e9; border-color: var(--orange-soft); }
+  .hours .block.to { background: #eef7f8; border-color: var(--teal-soft); }
+  .hours .block .lbl { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+  .hours .block .num { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -.03em; }
+  .hours .block.from .num { color: var(--orange-strong); }
+  .hours .block.to .num { color: var(--teal-deep); }
+  .hours .block .unit { color: var(--ink-soft); font-size: .95rem; margin-top: 4px; }
+  .hours .arrow { display: grid; place-items: center; color: var(--orange); font-family: "Caveat", cursive; font-size: 1.6rem; }
+
   .byline { margin-top: 26px; font-family:"Caveat",cursive; font-size: 1.35rem; color: var(--ink-soft); }
 
   /* forward-looking "foundation" callout */
@@ -311,6 +325,7 @@
   .mark::before,
   .member,
   .member .avatar,
+  .hours .block,
   .foundation,
   .progress { border-radius: 0 !important; }
 </style>
@@ -337,6 +352,8 @@
     <symbol id="ic-note" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z"/><path d="M14 3v5h5M8 13h8M8 17h5"/></symbol>
     <symbol id="ic-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 0 0-4-10z"/></symbol>
     <symbol id="ic-inbox" viewBox="0 0 24 24"><path d="M4 13l2-8h12l2 8v6H4z"/><path d="M4 13h5l1 3h4l1-3h5"/></symbol>
+    <symbol id="ic-cam" viewBox="0 0 24 24"><path d="M4 8h4l2-3h4l2 3h4v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    <symbol id="ic-upload" viewBox="0 0 24 24"><path d="M12 16V5M8 9l4-4 4 4"/><path d="M4 19h16"/></symbol>
     <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></symbol>
     <symbol id="ic-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M4 12H1M23 12h-3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></symbol>
     <symbol id="ic-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></symbol>
@@ -374,17 +391,11 @@
 
     <!-- 1. Title -->
     <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> Procurement · Bulk Cement Pricing</div>
-      <h1 class="reveal d2">From a <span class="mark o">daily phone-call sheet</span> to an <span class="accent-t">auto-drafted quotation</span></h1>
+      <div class="kicker reveal d1"><span class="dot"></span> Procurement · Supplier Quote Pricing</div>
+      <h1 class="reveal d2">From a <span class="mark o">supplier quote PDF</span> to a <span class="accent-t">priced portfolio</span></h1>
       <span class="doodle-underline reveal d2"><svg class="ic" viewBox="0 0 200 16" preserveAspectRatio="none"><use href="#d-underline"/></svg></span>
-      <p class="subtitle reveal d3">Portfolio Pricing → Auto Draft turns the manager's manual price sheet into instantly pre-filled RFQ drafts.</p>
-      <div class="badges reveal d4">
-        <div class="badge"><span class="pin"></span> supplier</div>
-        <div class="badge o"><span class="pin"></span> opportunity</div>
-        <div class="badge g"><span class="pin"></span> quotation</div>
-        <div class="badge"><span class="pin"></span> procurement</div>
-      </div>
-      <div class="team reveal d5">
+      <p class="subtitle reveal d3">Scanned quotes in. Confirmed prices in the supplier portfolio. A person still signs off every line.</p>
+      <div class="team reveal d4">
         <span class="team-label"><svg class="ic"><use href="#ic-spark"/></svg> built by the crew</span>
         <div class="crew">
           <div class="member"><span class="avatar">I</span><div class="member-info"><span>Ikhlas</span><span class="member-role">Engineering</span></div></div>
@@ -394,7 +405,7 @@
           <div class="member"><span class="avatar">J</span><div class="member-info"><span>Jamie</span><span class="member-role">Procurement</span></div></div>
         </div>
       </div>
-      <div class="aside a-bl">one manager, every province,<br>every single day
+      <div class="aside a-bl">PDFs and photos,<br>often scanned Arabic
         <svg class="curve" viewBox="0 0 70 48" style="display:block;margin-top:2px"><use href="#d-curve"/></svg>
       </div>
     </section>
@@ -402,133 +413,67 @@
     <!-- 2. The Problem -->
     <section class="slide">
       <div class="kicker reveal d1"><span class="dot"></span> The Problem</div>
-      <h2 class="reveal d2">Today, pricing Bulk Cement is <span class="accent-o">manual and repetitive</span></h2>
-      <p class="lead reveal d3">One Procurement Manager per province runs the same loop every single day:</p>
-      <ol class="steps">
-        <li class="reveal d3"><span class="n">1</span> Calls manufacturers to collect the day's Bulk Cement prices</li>
-        <li class="reveal d4"><span class="n">2</span> Enters them into a spreadsheet, per factory customer</li>
-        <li class="reveal d5"><span class="n">3</span> Calculates the buy price and selling price by hand</li>
-        <li class="reveal d6"><span class="n">4</span> Re-types those prices into <em>every</em> Bulk RFQ, one by one</li>
-      </ol>
-      <div class="aside a-br">this is the bit<br>that kills the day
-        <svg class="curve" viewBox="0 0 70 48" style="display:block;margin-left:auto;transform:scaleX(-1)"><use href="#d-curve"/></svg>
+      <h2 class="reveal d2">Today we <span class="accent-o">re-type</span> every quote into the portfolio</h2>
+      <p class="lead reveal d3">Supplier quotations arrive as PDFs and photos — often scanned Arabic, mixed AR/EN, units, VAT. Someone reads each line and keys it in by hand.</p>
+      <div class="cards c2" style="max-width:820px">
+        <div class="card orange reveal d4"><div class="ico"><svg class="ic"><use href="#ic-clock"/></svg></div><h3>~130 hours / month</h3><p>Document reading and data entry, spread across the procurement team.</p></div>
+        <div class="card reveal d5"><div class="ico"><svg class="ic"><use href="#ic-warning"/></svg></div><h3>A typo sticks</h3><p>The wrong SKU or unit price lands in the portfolio — and every later quote inherits it.</p></div>
       </div>
     </section>
 
-    <!-- 3. Why it hurts -->
-    <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> Why It Hurts</div>
-      <h2 class="reveal d2">The hidden cost of the <span class="accent-o">daily sheet</span></h2>
-      <div class="cards c3">
-        <div class="card orange reveal d2"><div class="ico"><svg class="ic"><use href="#ic-clock"/></svg></div><h3>Slow to respond</h3><p>Every RFQ waits for manual copy-paste, delaying quotes to factory customers.</p></div>
-        <div class="card lime reveal d3"><div class="ico"><svg class="ic"><use href="#ic-pen"/></svg></div><h3>Error-prone</h3><p>Typing prices by hand into each RFQ invites mistakes and mispriced deals.</p></div>
-        <div class="card reveal d4"><div class="ico"><svg class="ic"><use href="#ic-loop"/></svg></div><h3>Not scalable</h3><p>Knowledge lives in one person's sheet — hard to cover, audit, or scale per province.</p></div>
-      </div>
-    </section>
-
-    <!-- 4. Solution in a nutshell -->
-    <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> The Solution · In a Nutshell</div>
-      <h2 class="reveal d2">Prices flow from the <span class="accent-t">supplier portfolio</span> straight into a <span class="mark o">draft</span></h2>
-      <p class="lead reveal d3">The manager still owns the day's prices — but instead of re-typing them into every RFQ, the system reads the latest portfolio price per product and <strong>auto-creates a draft quotation with supplier &amp; credit price already filled in.</strong></p>
-      <div class="aside a-tr" style="max-width:220px"><div class="sticky">we don't price for them — we just stop the re-typing</div></div>
-      <div class="cards c3">
-        <div class="card reveal d4"><div class="ico"><svg class="ic"><use href="#ic-target"/></svg></div><h3>Look up by SKU</h3><p>For each RFQ line we fetch the freshest supplier-portfolio price in the province.</p></div>
-        <div class="card orange reveal d5"><div class="ico"><svg class="ic"><use href="#ic-note"/></svg></div><h3>Draft, pre-filled</h3><p>A draft quotation is created automatically with the credit price from the portfolio.</p></div>
-        <div class="card lime reveal d6"><div class="ico"><svg class="ic"><use href="#ic-bulb"/></svg></div><h3>Clear signal</h3><p>A flag tells the UI these prices came from the portfolio, shown via a tooltip.</p></div>
-      </div>
-    </section>
-
-    <!-- 5. How it works -->
+    <!-- 3. How it works -->
     <section class="slide">
       <div class="kicker reveal d1"><span class="dot"></span> How It Works</div>
-      <h2 class="reveal d2">One RFQ raise, <span class="accent-t">zero manual pricing</span></h2>
+      <h2 class="reveal d2">Upload. Extract. <span class="accent-t">Confirm.</span> Write.</h2>
+      <div class="aside a-tr" style="max-width:220px"><div class="sticky">we extract — they still confirm</div></div>
       <div class="flow">
-        <div class="node"><span class="tag">Trigger</span><span class="emoji"><svg class="ic"><use href="#ic-inbox"/></svg></span><h4>RFQ Raised</h4><p>Manager raises a Bulk RFQ for a province (city).</p></div>
+        <div class="node"><span class="tag">upload</span><span class="emoji"><svg class="ic"><use href="#ic-upload"/></svg></span><h4>Upload</h4><p>PDF or photo, with supplier and city. A quote prices one city.</p></div>
         <div class="arrow"><svg class="ic"><use href="#ic-arrow"/></svg></div>
-        <div class="node"><span class="tag">supplier</span><span class="emoji"><svg class="ic"><use href="#ic-search"/></svg></span><h4>Price Lookup</h4><p>Latest active supplier-portfolio price per SKU, in that city.</p></div>
+        <div class="node"><span class="tag">extract</span><span class="emoji"><svg class="ic"><use href="#ic-search"/></svg></span><h4>Extract</h4><p>Line items: text, qty, unit, unit price, confidence.</p></div>
         <div class="arrow"><svg class="ic"><use href="#ic-arrow"/></svg></div>
-        <div class="node"><span class="tag">opportunity</span><span class="emoji"><svg class="ic"><use href="#ic-gear"/></svg></span><h4>Auto Draft</h4><p>Best-effort async build of the draft, prices attached.</p></div>
+        <div class="node"><span class="tag">confirm</span><span class="emoji"><svg class="ic"><use href="#ic-check"/></svg></span><h4>Confirm</h4><p>Match SKU &amp; unit. Edit the price. Create the product only if it's new.</p></div>
         <div class="arrow"><svg class="ic"><use href="#ic-arrow"/></svg></div>
-        <div class="node"><span class="tag">quotation</span><span class="emoji"><svg class="ic"><use href="#ic-check"/></svg></span><h4>Draft Ready</h4><p>Credit price pre-filled; flagged as portfolio-sourced.</p></div>
+        <div class="node"><span class="tag">portfolio</span><span class="emoji"><svg class="ic"><use href="#ic-folder"/></svg></span><h4>Write</h4><p>Existing portfolio API. Nothing is written until this step.</p></div>
       </div>
-      <p class="footer-note reveal d5">Auto-draft is <strong>best-effort</strong>: if pricing is missing, the RFQ raise is never blocked.</p>
+      <p class="footer-note reveal d5">The human gate is the point: AI proposes, procurement confirms, then we write.</p>
     </section>
 
-    <!-- 6. On screen (procurement-frontend) -->
+    <!-- 4. Impact -->
     <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> On Screen · procurement-frontend</div>
-      <h2 class="reveal d2">The manager just <span class="accent-t">reviews</span> a pre-filled draft</h2>
-      <p class="lead reveal d3">On the Open RFQ pricing page, the draft opens with prices already in place — clearly marked as system-sourced, ready to review or override.</p>
-      <div class="cards c3">
-        <div class="card reveal d4"><div class="ico"><svg class="ic"><use href="#ic-browser"/></svg></div><h3>Pre-filled lines</h3><p>Each line opens with the supplier &amp; price populated from the portfolio — no blank grid to fill.</p></div>
-        <div class="card lime reveal d5"><div class="ico"><svg class="ic"><use href="#ic-tag"/></svg></div><h3>"Auto-filled" badge</h3><p>Auto-sourced lines carry a badge so it's obvious which prices came from the system, not typed by hand.</p></div>
-        <div class="card orange reveal d6"><div class="ico"><svg class="ic"><use href="#ic-cursor"/></svg></div><h3>Review &amp; override</h3><p>A pricing-insights tooltip explains the numbers; the manager tweaks any line before sending.</p></div>
-      </div>
-    </section>
-
-    <!-- 7. Before vs After -->
-    <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> Before vs After</div>
-      <h2 class="reveal d2">Same prices, <span class="accent-o">none of the busywork</span></h2>
-      <div class="ba">
-        <div class="panel before reveal d2">
-          <h3><span class="li-ic"><svg class="ic"><use href="#ic-sad"/></svg></span> Before</h3>
-          <ul>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-phone"/></svg></span> Call manufacturers, jot prices on a sheet</li>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-calc"/></svg></span> Hand-calculate buy &amp; sell per customer</li>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-keyboard"/></svg></span> Manually fill every Bulk RFQ from the sheet</li>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-warning"/></svg></span> Slow, error-prone, tied to one person</li>
-          </ul>
+      <div class="kicker reveal d1"><span class="dot"></span> The Impact</div>
+      <h2 class="reveal d2"><span class="mark">93%</span> less work for procurement</h2>
+      <div class="hours reveal d3">
+        <div class="block from">
+          <div class="lbl">Re-typing quotes</div>
+          <div class="num">~<span data-count="130">130</span></div>
+          <div class="unit">hours / month</div>
         </div>
-        <div class="panel after reveal d3">
-          <h3><span class="li-ic"><svg class="ic"><use href="#ic-rocket"/></svg></span> After</h3>
-          <ul>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-folder"/></svg></span> Portfolio holds the day's supplier prices</li>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-bolt"/></svg></span> Draft auto-created the moment an RFQ is raised</li>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-target"/></svg></span> Supplier &amp; credit price pre-filled per line</li>
-            <li><span class="li-ic"><svg class="ic"><use href="#ic-eye"/></svg></span> Manager just reviews, tweaks, and sends</li>
-          </ul>
+        <div class="arrow">→ review, not re-type</div>
+        <div class="block to">
+          <div class="lbl">Confirming lines</div>
+          <div class="num"><span data-count="9">9</span></div>
+          <div class="unit">hours / month</div>
         </div>
       </div>
+      <p class="lead reveal d5" style="margin-top:32px">Same judgment. Almost none of the typing.</p>
     </section>
 
-    <!-- 8. Impact -->
+    <!-- 5. What this sets up -->
     <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> Why It's Worth It</div>
-      <h2 class="reveal d2">Faster quotes, <span class="mark">fewer mistakes</span></h2>
-      <div class="napkin reveal d3">
-        <div class="hdr">back-of-napkin, per Bulk RFQ:</div>
-        <div class="rows">
-          <div class="row"><span>manual filling from the sheet</span><b>a few mins each</b></div>
-          <div class="row"><span>with an auto-drafted quote</span><b><span class="circle-num">open &amp; review<svg viewBox="0 0 120 60" preserveAspectRatio="none"><use href="#d-circle"/></svg></span></b></div>
-          <div class="row win"><span>typing errors on prices</span><b>→ basically gone</b></div>
-        </div>
-        <div class="caveat">* rough — worth confirming with the province teams once it's live</div>
-      </div>
-      <p class="lead reveal d5" style="margin-top:26px">The manager's expertise stays in charge of pricing — we just take out the copy-paste.</p>
+      <div class="kicker reveal d1"><span class="dot"></span> What This Sets Up</div>
+      <h1 class="reveal d2">Authoritative prices, in <span class="accent-t">one portfolio</span>.</h1>
+      <p class="subtitle reveal d3">Confirmed quote prices land where every other module already reads. That's the input side of a central pricing engine.</p>
     </section>
 
-    <!-- 9. Safe rollout -->
-    <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> Safe Rollout</div>
-      <h2 class="reveal d2">Shipped behind a <span class="accent-o">feature flag</span></h2>
-      <p class="lead reveal d3">The whole auto-draft flow is gated at the start, so it stays off until we're ready — and can be switched on province-by-province without a redeploy.</p>
-      <div class="cards c2" style="max-width:820px">
-        <div class="card reveal d3"><div class="ico"><svg class="ic"><use href="#ic-flag"/></svg></div><h3>Off by default</h3><p>Flag <code>enable_portfolio_pricing_auto_draft</code> guards the flow before any lookup or draft is created.</p></div>
-        <div class="card lime reveal d4"><div class="ico"><svg class="ic"><use href="#ic-shield"/></svg></div><h3>Never blocks a raise</h3><p>Auto-draft runs async and best-effort; failures are logged, the RFQ raise is untouched.</p></div>
-      </div>
-    </section>
-
-    <!-- 10. Closing -->
+    <!-- 6. In Short -->
     <section class="slide">
       <div class="kicker reveal d1"><span class="dot"></span> In Short</div>
-      <h1 class="reveal d2">The sheet's prices, <span class="accent-t">delivered as a draft</span> — <span class="mark o">automatically</span>.</h1>
-      <p class="subtitle reveal d3">Managers keep owning the day's Bulk Cement prices. We take away the repetitive filling, speed up every quote, and keep the portfolio as the single source of truth.</p>
+      <h1 class="reveal d2">The quote's prices, <span class="accent-t">confirmed into the portfolio</span> — <span class="mark o">without the typing</span>.</h1>
+      <p class="subtitle reveal d3">Upload. Extract. Confirm. Write. Procurement keeps the judgment; the system takes the document work.</p>
       <div class="badges reveal d4">
-        <div class="badge"><span class="pin"></span> Faster quotes</div>
-        <div class="badge o"><span class="pin"></span> Fewer errors</div>
-        <div class="badge g"><span class="pin"></span> Safe, flagged rollout</div>
+        <div class="badge"><span class="pin"></span> 93% less work</div>
+        <div class="badge o"><span class="pin"></span> Human confirms every line</div>
+        <div class="badge g"><span class="pin"></span> Portfolio stays the source of truth</div>
       </div>
       <div class="foundation reveal d5">
         <div class="f-lbl"><svg class="ic"><use href="#ic-rocket"/></svg> What this sets up</div>
