@@ -392,9 +392,9 @@
     <!-- 1. Title -->
     <section class="slide">
       <div class="kicker reveal d1"><span class="dot"></span> Procurement · Supplier Quote Pricing</div>
-      <h1 class="reveal d2">From a <span class="mark o">supplier quote PDF</span> to a <span class="accent-t">priced portfolio</span></h1>
+      <h1 class="reveal d2">From a <span class="mark o">supplier quote PDF</span> to an <span class="accent-t">auto-filled quotation</span></h1>
       <span class="doodle-underline reveal d2"><svg class="ic" viewBox="0 0 200 16" preserveAspectRatio="none"><use href="#d-underline"/></svg></span>
-      <p class="subtitle reveal d3">Scanned quotes in. Confirmed prices in the supplier portfolio. A person still signs off every line.</p>
+      <p class="subtitle reveal d3">Confirm the quote into the portfolio. Every RFQ then opens with those prices already filled in.</p>
       <div class="team reveal d4">
         <span class="team-label"><svg class="ic"><use href="#ic-spark"/></svg> built by the crew</span>
         <div class="crew">
@@ -458,22 +458,30 @@
       <p class="lead reveal d5" style="margin-top:32px">Same judgment. Almost none of the typing.</p>
     </section>
 
-    <!-- 5. What this sets up -->
+    <!-- 5. The edge: auto-fill -->
     <section class="slide">
-      <div class="kicker reveal d1"><span class="dot"></span> What This Sets Up</div>
-      <h1 class="reveal d2">Authoritative prices, in <span class="accent-t">one portfolio</span>.</h1>
-      <p class="subtitle reveal d3">Confirmed quote prices land where every other module already reads. That's the input side of a central pricing engine.</p>
+      <div class="kicker reveal d1"><span class="dot"></span> The Edge</div>
+      <h2 class="reveal d2">Once it's in the portfolio, <span class="accent-t">quotations auto-fill</span></h2>
+      <p class="lead reveal d3">When an RFQ is raised, we look up the latest supplier-portfolio price per SKU and auto-create a draft — supplier and credit price already filled. The manager reviews, instead of re-typing.</p>
+      <div class="aside a-tr" style="max-width:220px"><div class="sticky">this is the edge</div></div>
+      <div class="flow">
+        <div class="node"><span class="tag">rfq</span><span class="emoji"><svg class="ic"><use href="#ic-inbox"/></svg></span><h4>RFQ raised</h4><p>A Bulk RFQ comes in for a city.</p></div>
+        <div class="arrow"><svg class="ic"><use href="#ic-arrow"/></svg></div>
+        <div class="node"><span class="tag">portfolio</span><span class="emoji"><svg class="ic"><use href="#ic-search"/></svg></span><h4>Price lookup</h4><p>Latest confirmed price for that SKU, in that city.</p></div>
+        <div class="arrow"><svg class="ic"><use href="#ic-arrow"/></svg></div>
+        <div class="node"><span class="tag">quotation</span><span class="emoji"><svg class="ic"><use href="#ic-check"/></svg></span><h4>Draft, pre-filled</h4><p>Credit price in place, flagged as portfolio-sourced. Review and send.</p></div>
+      </div>
     </section>
 
     <!-- 6. In Short -->
     <section class="slide">
       <div class="kicker reveal d1"><span class="dot"></span> In Short</div>
-      <h1 class="reveal d2">The quote's prices, <span class="accent-t">confirmed into the portfolio</span> — <span class="mark o">without the typing</span>.</h1>
-      <p class="subtitle reveal d3">Upload. Extract. Confirm. Write. Procurement keeps the judgment; the system takes the document work.</p>
+      <h1 class="reveal d2">From a scanned quote to a <span class="accent-t">pre-filled draft</span> — <span class="mark o">without the typing</span>.</h1>
+      <p class="subtitle reveal d3">Extract into the portfolio. Auto-fill every quotation from it. Procurement keeps the judgment.</p>
       <div class="badges reveal d4">
         <div class="badge"><span class="pin"></span> 93% less work</div>
         <div class="badge o"><span class="pin"></span> Human confirms every line</div>
-        <div class="badge g"><span class="pin"></span> Portfolio stays the source of truth</div>
+        <div class="badge g"><span class="pin"></span> Quotations auto-fill</div>
       </div>
       <div class="foundation reveal d5">
         <div class="f-lbl"><svg class="ic"><use href="#ic-rocket"/></svg> What this sets up</div>

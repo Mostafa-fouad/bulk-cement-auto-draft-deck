@@ -6,19 +6,19 @@
 ---
 
 ### The 15-second version
-> "Procurement receives supplier quotations as PDFs and photos — often scanned Arabic — and types every line into the supplier portfolio by hand. That takes about 130 hours a month. We extract the products and prices with AI, a person confirms each line, and then we write to the portfolio. Same judgment, almost none of the typing — down to about 9 hours a month, a 93% cut."
+> "Procurement receives supplier quotations as PDFs and photos and types them into the portfolio by hand — about 130 hours a month. We extract the prices, a person confirms each line, and those prices land in the supplier portfolio. Then, when an RFQ is raised, the quotation auto-fills from that portfolio. Same judgment, almost none of the typing — down to about 9 hours a month, a 93% cut."
 
 ### One thing to remember
-**We extract. They still confirm.**
+**We extract into the portfolio. Then quotations auto-fill from it.**
 
 ---
 
 ## Slide 1 — Title
 
-**On screen:** Title, short subtitle, team with roles.
+**On screen:** "From a supplier quote PDF to an auto-filled quotation." Team with roles.
 
 **Say this:**
-> "Hi everyone — this is about getting supplier quote prices into the portfolio without the typing. Quotes arrive as PDFs and photos, often scanned Arabic. Today we re-key them by hand. I'll cover the problem, the flow, and the impact — about five minutes."
+> "Hi everyone — this is about getting supplier quote prices into the portfolio without the typing, and then auto-filling every quotation from that portfolio. Quotes arrive as PDFs and photos, often scanned Arabic. Today we re-key them by hand. I'll cover the problem, the flow, the impact, and the edge — about six minutes."
 
 **Transition:** "Here's the work today."
 
@@ -57,16 +57,16 @@
 
 **Don't:** re-explain the problem. State the number and move.
 
-**Transition:** "And this is the input to something bigger."
+**Transition:** "That's the input. Here's the edge."
 
 ---
 
-## Slide 5 — What This Sets Up
+## Slide 5 — The Edge
 
-**On screen:** Portfolio as the read target. Mizan callout. No 93% recap.
+**On screen:** Sticky "this is the edge." RFQ raised → Price lookup → Draft, pre-filled.
 
 **Say this:**
-> "Confirmed prices land in the supplier portfolio — the same place every other module already reads from. That's the input side of a central pricing engine."
+> "Once those confirmed prices sit in the supplier portfolio, we get the edge: quotations auto-fill. When an RFQ is raised for a city, we look up the latest portfolio price for each SKU and auto-create a draft with the supplier and the credit price already filled. The manager opens a draft, not a blank grid — they review and send instead of re-typing."
 
 **Transition:** "So, in short."
 
@@ -74,10 +74,10 @@
 
 ## Slide 6 — In Short
 
-**On screen:** "The quote's prices, confirmed into the portfolio — without the typing." Badges: 93% less work, Human confirms every line, Portfolio stays the source of truth. Mizan callout.
+**On screen:** "From a scanned quote to a pre-filled draft — without the typing." Badges: 93% less work, Human confirms every line, Quotations auto-fill. Mizan callout.
 
 **Say this:**
-> "In short: the quote's prices, confirmed into the portfolio, without the typing. Upload, extract, confirm, write. Procurement keeps the judgment; the system takes the document work. And this is the foundation for quotation auto-pricing with Mizan — toward one central pricing engine for every module. Happy to walk through any of this — what questions do you have?"
+> "In short: from a scanned quote to a pre-filled draft, without the typing. We extract into the portfolio, a person confirms every line, and then every quotation auto-fills from that portfolio. That's the 93 percent cut — and the foundation for quotation auto-pricing with Mizan. Happy to walk through any of this — what questions do you have?"
 
 ---
 
@@ -88,10 +88,11 @@
 - **Product missing?** Create with existing EN/AR naming, then price. Still behind the human gate.
 - **New write API?** No. Existing portfolio PATCH.
 - **93% / 130 / 9?** Procurement team's estimate of re-keying vs reviewing.
-- **Auto-draft RFQs?** No. Different idea. This only fills the portfolio.
-- **Mizan?** This is the input side of a central pricing engine.
+- **Auto-draft RFQs?** Yes — that's the edge. Portfolio lookup → pre-filled draft. Manager still reviews.
+- **Mizan?** Extract into one portfolio, auto-fill quotations from it. First step toward a central pricing engine.
 
 ## Presenter tips
 
-- Six slides, one job each: scene → problem → flow → number → strategy → wrap.
+- Six slides: scene → problem → extract flow → number → **auto-fill edge** → wrap.
+- Don't bury auto-fill. Extraction without it is just cheaper data entry.
 - If asked about Approaches A/B/C, point at the design doc — don't derail.
